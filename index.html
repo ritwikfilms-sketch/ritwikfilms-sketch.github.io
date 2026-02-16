@@ -1,44 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ritwik Films AI</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin:0;
-            font-family: Arial;
-            background:black;
-            color:white;
-            text-align:center;
-        }
-        nav {
-            background:#111;
-            padding:15px;
-        }
-        nav a {
-            color:white;
-            margin:15px;
-            text-decoration:none;
-        }
-        nav a:hover {
-            color:#ff004f;
-        }
-        h1 {
-            margin-top:80px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritwik Films AI</title>
+<style>
+/* ===== Global ===== */
+body {
+  margin:0; font-family:'Segoe UI',Arial; background: linear-gradient(135deg,#0f0f0f,#1a1a1a); color:white; text-align:center;
+}
+nav {
+  background:#111; display:flex; justify-content:center; padding:15px; position:sticky; top:0; z-index:10;
+}
+nav a { color:white; margin:0 20px; text-decoration:none; font-weight:bold; transition:0.3s; }
+nav a:hover { color:#ff3366; }
+
+/* ===== Header ===== */
+header { padding:100px 20px 50px 20px; }
+h1 { font-size:50px; margin-bottom:10px; }
+p { font-size:20px; color:#ccc; }
+
+/* ===== Buttons ===== */
+.btn {
+  display:inline-block; margin:15px; padding:15px 30px; background:#ff004f; color:white; border-radius:50px; text-decoration:none; font-weight:bold; transition:0.3s; box-shadow:0 5px 15px rgba(255,0,79,0.4);
+}
+.btn:hover { background:#ff3366; transform:translateY(-3px); box-shadow:0 10px 20px rgba(255,0,79,0.6); }
+
+/* ===== Sections ===== */
+section {
+  margin:70px 20px; padding:50px 20px; border-radius:15px; background: rgba(255,255,255,0.05); box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+section h2 { font-size:30px; margin-bottom:20px; }
+
+/* ===== Footer ===== */
+footer { margin-top:50px; padding:20px; background:#111; font-size:14px; color:#888; }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  h1{ font-size:36px; }
+  section{ padding:30px 15px; }
+}
+</style>
 </head>
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </nav>
 
+<header>
 <h1>🚀 Ritwik Films AI</h1>
-<p>Welcome to my official AI platform</p>
+<p>Welcome to the ultimate AI platform</p>
+</header>
+
+<!-- Donate / Payment -->
+<a href="https://www.paypal.com/donate?hosted_button_id=YOUR_ID" class="btn" target="_blank">Donate / Support</a>
+
+<!-- YouTube Section -->
+<section>
+<h2>My YouTube Channel</h2>
+<a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" class="btn" target="_blank">Watch Videos 🚀</a>
+</section>
+
+<!-- AI Tools Section -->
+<section>
+<h2>AI Tools</h2>
+<p>Explore advanced AI projects and tools developed by Ritwik.</p>
+</section>
+
+<!-- AI Voice Section -->
+<section>
+<h2>AI Voice Demo</h2>
+<p id="voice-text">Welcome to Ritwik Films AI official platform!</p>
+<button class="btn" onclick="speakText(document.getElementById('voice-text').innerText)">🔊 Listen</button>
+</section>
+
+<footer>
+©️ 2026 Ritwik Films AI | Built with ❤️ by Ritwik
+</footer>
+
+<script>
+function speakText(text){
+  if('speechSynthesis' in window){
+    let utterance=new SpeechSynthesisUtterance(text);
+    utterance.rate=1;
+    utterance.pitch=1;
+    speechSynthesis.speak(utterance);
+  }else{
+    alert("Sorry, your browser does not support AI voice.");
+  }
+}
+</script>
 
 </body>
 </html>
